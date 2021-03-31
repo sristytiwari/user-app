@@ -13,29 +13,14 @@ export default function UserContainer() {
 
   const fetchUserData = () => {
     axios.get("https://reqres.in/api/users").then((responseData) => {
-      console.log(responseData);
+      
       setUsers(responseData.data.data);
     });
   };
   const onChangeHandler = (e) => {
     setSearchedValue(e.target.value);
   };
-//   useEffect(() => {
-//     if (searchedValue) {
-//       if (searchedValue !== "") {
-//         let tempUser = [];
-//         users.map((user) => {
-//           if (
-//             user.first_name == searchedValue ||
-//             user.last_name == searchedValue
-//           ) {
-//             tempUser.push(user);
-//           }
-//         });
-//         setUsers(tempUser);
-//       }
-//     }
-//   }, [searchedValue]);
+
 
   return (
     <div>
@@ -51,10 +36,8 @@ export default function UserContainer() {
             <td>Email</td>
           </tr>
           {users.map((user, index) => {
-            {
-              console.log(user);
-              console.log(searchedValue)
-            }
+            
+        
             if(searchedValue && searchedValue !==''){
                 if(searchedValue == user.last_name || searchedValue== user.first_name){
                     return  (
